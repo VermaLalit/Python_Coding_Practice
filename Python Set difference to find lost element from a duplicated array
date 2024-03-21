@@ -1,0 +1,16 @@
+# 1. Using set operation difference()
+list1 = [1, 4, 5, 7, 9]
+list2 = [4, 5, 7]
+print(list(set(list1).difference(set(list2))),'_1_')
+
+print(list(set(list1) - (set(list2))),'_2_')
+
+# 2. Using siple for loop and python list
+
+list1 = [1, 4, 5, 7, 9]
+list2 = [4, 7, 9]
+list3 = []
+for i in list1:
+    if i not in list2:
+        list3.append(i)
+print(list3,'_3_')

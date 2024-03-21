@@ -1,0 +1,23 @@
+tuple1 = (1,2,3,4,5)   # Time complexity: O(n) and Auxiliary space: O(n)
+list1 = [tuple1[i] * tuple1[i+1] for i in range(len(tuple1)-1)]
+print(tuple(list1),"_1_")
+
+# 4. Using generator expression + tuple
+tuple1 = (1,2,3,4,5)      # Time complexity: O(n) and Auxiliary space: O(n)
+tuple2 = tuple(tuple1[i] * tuple1[i+1] for i in range(len(tuple1)-1))
+print(tuple2,"_2_")
+
+# 3. Using simple for loop
+tuple1 = (1,2,3,4,5)        # Time complexity: O(n) and Auxiliary space: O(n)
+list1 = []
+for i in range(len(tuple1)-1):
+    list1.append(tuple1[i] * tuple1[i+1])
+print(tuple(list1),"_3_")
+
+
+# 4 Using numpy          # Time complexity: O(n) and Auxiliary space: O(n)
+import numpy as np
+tuple1 = (1,2,3,4,5)
+res = np.multiply(tuple1[1:],tuple1[:-1])
+print(tuple(res),"_4_")
+

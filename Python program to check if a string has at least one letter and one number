@@ -1,0 +1,62 @@
+# 1. Using isalpha() and isdigit()
+
+str1 = "Lalit verma27"  #  Time Complexity: O(n) and Auxiliary Space: O(n)
+flag_l = False
+flag_n = False
+for i in str1:
+    if i.isalpha():
+        flag_l = True
+    if i.isdigit():
+        flag_n = True
+if flag_l and flag_n:
+    print('yes')
+else:
+    print('no')
+
+# 2. Using different variables
+
+def check_numbers_and_string(string1):  # Time Complexity: O(n), where n is length of string and Auxiliary Space: O(1)
+    s = 'abcseFghijklmnOPQRSTUvwxyz'
+    n = '0123456789'
+    flag_l = False
+    flag_n = False
+    for i in str1:
+        if i in s.lower():
+            flag_l = True
+        if i in n:
+            flag_n = True
+    return flag_l and flag_n
+
+str1 = "verma Shab27"
+print(check_numbers_and_string(str1))
+
+# 3. Using regular expression  i.e re module
+
+import re                     # Time Complexity: O(N) and Auxiliary Space : O(1)
+def check_alpha_numeric_string(str1):
+    match = re.search(r'[a-zA-Z]+',str1) and re.search(r'[0-9]+',str1)
+    if match:
+        return True
+    else:
+        return False
+    
+print(check_alpha_numeric_string('Pithora Haluwasia'))
+
+# 4. Using set intersection
+
+def check(str1):          # Time Complexity: O(N) and Auxiliary Space : O(1)
+    set1 = set('abcdefghijklmnopqrstuvwxyz')
+    set2 = set('0123456789')
+    flag_1 = set1.intersection(set(str1))
+    flag_2 = set2.intersection(set(str1))
+    if flag_1 and flag_2:
+        return True
+    else:
+        return False
+
+print(check("lalit Verma27"))
+
+# using lambda function
+
+check_string = lambda s: any(c.isalpha() for c in s) and any(d.isdigit() for d in s)
+print(check_string('Lalit verma Pithora haluwasia27'))   # # Time Complexity: O(N) and Auxiliary Space : O(1)
